@@ -415,41 +415,149 @@ nav .container {
 
 
 /* PRICING */
-.pricing-section { padding: 72px 0; background: var(--gray-50); }
-.pricing-section .section-header { text-align: center; margin-bottom: 44px; }
-.pricing-section h2 { font-size: 34px; font-weight: 800; color: var(--blue-900); margin-bottom: 10px; }
+.pricing-section { padding: 80px 0; background: var(--gray-50); }
+.pricing-section .section-header { text-align: center; margin-bottom: 52px; }
+.pricing-section h2 { font-size: 38px; font-weight: 900; color: var(--blue-900); margin-bottom: 10px; letter-spacing: -0.02em; }
 .pricing-section .section-sub { color: var(--gray-500); font-size: 17px; }
-.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.pricing-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  align-items: center;
+  max-width: 1000px; margin: 0 auto;
+}
+
+/* Base card */
 .pricing-card {
-  border-radius: var(--radius-lg); padding: 32px; text-align: center;
-  border: 2px solid var(--gray-200); transition: all 0.3s; position: relative;
+  border-radius: var(--radius-xl); padding: 40px 32px; text-align: center;
+  border: 1.5px solid var(--gray-200); transition: all 0.4s; position: relative;
   background: #fff;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+  display: flex; flex-direction: column;
 }
-.pricing-card:hover { border-color: var(--blue-400); }
-.pricing-card.featured { border-color: var(--blue-500); box-shadow: var(--shadow-xl); transform: scale(1.03); }
+.pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  z-index: 3;
+}
+
+/* Tier icon badge */
+.pricing-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; margin: 0 auto 20px;
+}
+.pricing-card:nth-child(1) .pricing-icon { background: var(--blue-100); }
+.pricing-card:nth-child(3) .pricing-icon { background: #e6f7f2; }
+
+/* Tier subtitle */
+.pricing-for {
+  font-size: 13px; color: var(--gray-400); font-weight: 500; margin-bottom: 4px;
+}
+
+/* Featured card — bold gradient */
+.pricing-card.featured {
+  background: linear-gradient(160deg, #0a2540 0%, #0d3a6a 30%, #1565c0 60%, #1e88e5 100%);
+  border: none;
+  padding: 52px 36px;
+  box-shadow: 0 24px 64px rgba(10,37,64,0.4), 0 8px 24px rgba(21,101,192,0.25);
+  transform: scale(1.06);
+  z-index: 2;
+  border-radius: 24px;
+}
+.pricing-card.featured:hover {
+  transform: scale(1.08) translateY(-4px);
+  box-shadow: 0 32px 72px rgba(10,37,64,0.45), 0 12px 30px rgba(21,101,192,0.3);
+}
 .pricing-card.featured::before {
-  content: 'MOST POPULAR'; position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-  background: var(--blue-500); color: #fff; padding: 4px 20px; border-radius: 100px;
-  font-size: 11px; font-weight: 700; letter-spacing: 0.05em;
+  content: 'MOST POPULAR'; position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+  color: #fff; padding: 7px 28px; border-radius: 100px;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.1em;
+  box-shadow: 0 4px 16px rgba(245,130,13,0.4);
 }
-.pricing-tier { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+/* Subtle glow accent inside featured */
+.pricing-card.featured::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 50%;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.06) 0%, transparent 70%);
+  border-radius: 24px 24px 0 0;
+  pointer-events: none;
+}
+
+/* Featured icon */
+.pricing-card.featured .pricing-icon {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+}
+
+/* Featured card text overrides */
+.pricing-card.featured .pricing-for { color: rgba(255,255,255,0.5); }
+.pricing-card.featured .pricing-tier { color: var(--orange-400); }
+.pricing-card.featured .pricing-savings { color: #fff; }
+.pricing-card.featured .pricing-desc { color: rgba(255,255,255,0.5); }
+.pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.85); }
+.pricing-card.featured .pricing-features li::before { color: var(--orange-400); }
+
+/* Tier label */
+.pricing-tier {
+  font-size: 20px; font-weight: 800; margin-bottom: 2px;
+  color: var(--gray-900);
+}
 .pricing-card:nth-child(1) .pricing-tier { color: var(--blue-600); }
-.pricing-card:nth-child(2) .pricing-tier { color: var(--orange-500); }
 .pricing-card:nth-child(3) .pricing-tier { color: var(--green-500); }
-.pricing-savings { font-size: 30px; font-weight: 800; color: var(--gray-900); margin-bottom: 4px; }
-.pricing-desc { font-size: 14px; color: var(--gray-500); margin-bottom: 24px; }
-.pricing-features { list-style: none; text-align: left; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
-.pricing-features li { font-size: 14px; color: var(--gray-700); display: flex; align-items: start; gap: 8px; }
-.pricing-features li::before { content: '\2713'; color: var(--green-500); font-weight: 700; flex-shrink: 0; }
-.pricing-btn {
-  display: block; width: 100%; padding: 14px; border-radius: 10px;
-  font-size: 15px; font-weight: 700; text-decoration: none; text-align: center;
-  transition: all 0.2s; cursor: pointer; border: none; font-family: inherit;
+
+/* Savings number */
+.pricing-savings {
+  font-size: 44px; font-weight: 900; color: var(--gray-900); margin-bottom: 4px;
+  letter-spacing: -0.03em; line-height: 1.1;
 }
-.pricing-btn.primary { background: var(--orange-500); color: #fff; box-shadow: 0 4px 12px rgba(245,130,13,0.25); }
-.pricing-btn.primary:hover { background: var(--orange-600); transform: translateY(-1px); }
-.pricing-btn.secondary { background: var(--gray-100); color: var(--gray-700); }
-.pricing-btn.secondary:hover { background: var(--gray-200); }
+.pricing-savings span {
+  font-size: 18px; font-weight: 500; color: var(--gray-400); letter-spacing: 0;
+  vertical-align: baseline;
+}
+.pricing-card.featured .pricing-savings span { color: rgba(255,255,255,0.5); }
+.pricing-desc { font-size: 14px; color: var(--gray-400); margin-bottom: 28px; }
+
+/* "What's included" label */
+.pricing-includes {
+  font-size: 13px; font-weight: 700; color: var(--gray-800); text-align: left;
+  margin-bottom: 16px;
+}
+.pricing-card.featured .pricing-includes { color: rgba(255,255,255,0.6); }
+
+/* Features list */
+.pricing-features { list-style: none; text-align: left; display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; flex: 1; }
+.pricing-features li { font-size: 14px; color: var(--gray-600); display: flex; align-items: center; gap: 12px; line-height: 1.5; }
+.pricing-features li::before {
+  content: '\2713'; font-weight: 700; flex-shrink: 0;
+  width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 12px;
+}
+.pricing-card:not(.featured) .pricing-features li::before {
+  background: var(--blue-100); color: var(--blue-600);
+}
+.pricing-card.featured .pricing-features li::before {
+  background: rgba(255,255,255,0.12); color: var(--orange-400);
+}
+
+/* Buttons */
+.pricing-btn {
+  display: block; width: 100%; padding: 16px; border-radius: 12px;
+  font-size: 15px; font-weight: 700; text-decoration: none; text-align: center;
+  transition: all 0.25s; cursor: pointer; border: none; font-family: inherit;
+  position: relative; z-index: 1; margin-top: auto;
+}
+.pricing-btn.primary {
+  background: #fff; color: var(--blue-900);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  font-size: 16px; padding: 18px;
+}
+.pricing-btn.primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
+.pricing-btn.secondary {
+  background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(245,130,13,0.3);
+}
+.pricing-btn.secondary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,130,13,0.4); }
 
 /* TESTIMONIALS */
 .testimonials-section { padding: 72px 0; background: var(--blue-900); }
@@ -508,6 +616,7 @@ footer .footer-links { display: flex; justify-content: center; gap: 24px; margin
   .value-props-inner { grid-template-columns: 1fr 1fr; }
   .personal-section .container { grid-template-columns: 1fr; }
   .benefits-grid, .pricing-grid, .testimonials-grid { grid-template-columns: 1fr; }
+  .pricing-grid { max-width: 400px; gap: 20px; }
   .pricing-card.featured { transform: none; }
   .nav-links { display: none; }
   .highlight-bar-inner { gap: 20px; font-size: 14px; }
@@ -731,9 +840,12 @@ footer .footer-links { display: flex; justify-content: center; gap: 24px; margin
     </div>
     <div class="pricing-grid">
       <div class="pricing-card">
+        <div class="pricing-icon">&#128230;</div>
+        <div class="pricing-for">For new programs</div>
         <div class="pricing-tier">New</div>
         <div class="pricing-savings">5-10% Off</div>
         <div class="pricing-desc">Below retail pricing</div>
+        <div class="pricing-includes">What's included</div>
         <ul class="pricing-features">
           <li>Factory sealed, brand new</li>
           <li>Full manufacturer warranty</li>
@@ -743,9 +855,12 @@ footer .footer-links { display: flex; justify-content: center; gap: 24px; margin
         <button class="pricing-btn secondary" onclick="document.getElementById('quote-form').scrollIntoView({behavior:'smooth'})">Get Quote</button>
       </div>
       <div class="pricing-card featured">
+        <div class="pricing-icon">&#127942;</div>
+        <div class="pricing-for">Best value</div>
         <div class="pricing-tier">Institutional</div>
         <div class="pricing-savings">10-20% Off</div>
         <div class="pricing-desc">Best value for schools</div>
+        <div class="pricing-includes">What's included</div>
         <ul class="pricing-features">
           <li>New, open-box repackaged</li>
           <li>Full manufacturer warranty</li>
@@ -755,9 +870,12 @@ footer .footer-links { display: flex; justify-content: center; gap: 24px; margin
         <button class="pricing-btn primary" onclick="document.getElementById('quote-form').scrollIntoView({behavior:'smooth'})">Get Quote &#8594;</button>
       </div>
       <div class="pricing-card">
+        <div class="pricing-icon">&#128176;</div>
+        <div class="pricing-for">For maximum savings</div>
         <div class="pricing-tier">Factory Renewed</div>
         <div class="pricing-savings">20-30% Off</div>
         <div class="pricing-desc">Maximum savings</div>
+        <div class="pricing-includes">What's included</div>
         <ul class="pricing-features">
           <li>Professionally refurbished</li>
           <li>1-year Math4Sale warranty</li>
