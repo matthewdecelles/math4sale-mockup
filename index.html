@@ -560,19 +560,27 @@ nav .container {
 .pricing-btn.secondary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,130,13,0.4); }
 
 /* TESTIMONIALS */
-.testimonials-section { padding: 72px 0; background: var(--blue-900); }
-.testimonials-section .section-header { text-align: center; margin-bottom: 44px; }
-.testimonials-section h2 { font-size: 34px; font-weight: 800; color: #fff; margin-bottom: 10px; }
-.testimonials-section .section-sub { color: rgba(255,255,255,0.6); font-size: 17px; }
-.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.testimonials-section { padding: 80px 0; background: var(--gray-50); border-top: 1px solid var(--gray-100); }
+.testimonials-section .section-header { text-align: center; margin-bottom: 48px; }
+.testimonials-section h2 { font-size: 34px; font-weight: 800; color: var(--blue-900); margin-bottom: 10px; }
+.testimonials-section .section-sub { color: var(--gray-500); font-size: 17px; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .testimonial-card {
-  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
-  border-radius: var(--radius-lg); padding: 28px;
+  background: #fff; border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-xl); padding: 32px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+  transition: all 0.3s;
+  display: flex; flex-direction: column;
 }
-.testimonial-stars { color: var(--orange-400); font-size: 15px; margin-bottom: 14px; letter-spacing: 2px; }
-.testimonial-text { color: rgba(255,255,255,0.85); font-size: 14px; line-height: 1.7; margin-bottom: 18px; }
-.testimonial-author { font-weight: 600; color: #fff; font-size: 14px; }
-.testimonial-role { color: rgba(255,255,255,0.5); font-size: 12px; margin-top: 2px; }
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  border-color: var(--gray-300);
+}
+.testimonial-stars { color: var(--orange-500); font-size: 16px; margin-bottom: 16px; letter-spacing: 2px; }
+.testimonial-text { color: var(--gray-600); font-size: 15px; line-height: 1.75; margin-bottom: 20px; flex: 1; }
+.testimonial-author { font-weight: 700; color: var(--gray-900); font-size: 15px; }
+.testimonial-role { color: var(--gray-400); font-size: 13px; margin-top: 2px; }
 
 /* FINAL CTA */
 .final-cta {
@@ -892,8 +900,7 @@ footer .footer-links { display: flex; justify-content: center; gap: 24px; margin
 <section class="testimonials-section">
   <div class="container">
     <div class="section-header">
-      <h2>What Schools Are Saying</h2>
-      <p class="section-sub">Don't take our word for it. Here's what 8,000+ schools think.</p>
+      <h2>Schools love us. Here's what they're saying:</h2>
     </div>
     <div class="testimonials-grid">
       <div class="testimonial-card">
