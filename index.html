@@ -276,26 +276,28 @@ nav .container {
 .value-prop strong { font-weight: 700; color: var(--gray-900); }
 
 /* LOGOS SECTION */
-.logos-section { padding: 48px 0; text-align: center; background: var(--gray-50); border-top: 1px solid var(--gray-100); }
+.logos-section { padding: 64px 0; text-align: center; background: var(--gray-50); border-top: 1px solid var(--gray-100); }
 .logos-section .section-label {
-  font-size: 12px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.12em; color: var(--gray-400); margin-bottom: 28px;
+  font-size: 13px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.14em; color: var(--gray-400); margin-bottom: 36px;
 }
 .logos-grid {
-  display: flex; justify-content: center; align-items: center; gap: 48px;
-  flex-wrap: wrap;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 24px;
+  max-width: 100%;
 }
 .logo-item {
-  display: flex; align-items: center; gap: 12px;
-  filter: grayscale(100%) opacity(0.55);
+  display: flex; align-items: center; justify-content: center;
+  flex: 1; min-width: 160px;
+  filter: grayscale(100%) opacity(0.5);
   transition: all 0.3s;
 }
 .logo-item:hover { filter: grayscale(0%) opacity(1); }
 .logo-item img {
-  height: 40px; width: auto; object-fit: contain;
+  height: 56px; width: auto; object-fit: contain; max-width: 160px;
 }
 .logo-item .logo-text {
-  font-size: 13px; font-weight: 700; color: var(--gray-600);
+  font-size: 14px; font-weight: 700; color: var(--gray-500);
   white-space: nowrap;
 }
 
@@ -346,18 +348,6 @@ nav .container {
 .personal-visual .divider { width: 60px; height: 3px; background: var(--orange-500); margin: 24px auto; border-radius: 2px; }
 .personal-visual .sub-stat { font-size: 15px; color: rgba(255,255,255,0.7); }
 
-/* TESTING */
-.testing-section { padding: 56px 0; text-align: center; background: #fff; }
-.testing-section h2 { font-size: 30px; font-weight: 800; color: var(--blue-900); margin-bottom: 10px; }
-.testing-section .section-sub { color: var(--gray-500); margin-bottom: 32px; font-size: 16px; }
-.test-badges { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-.test-badge {
-  padding: 14px 24px; background: var(--gray-50); border: 1.5px solid var(--gray-200);
-  border-radius: var(--radius); font-weight: 700; font-size: 15px; color: var(--blue-900);
-  display: flex; align-items: center; gap: 8px; transition: all 0.2s;
-}
-.test-badge:hover { border-color: var(--blue-400); background: var(--blue-50); }
-.test-badge .check { color: var(--green-500); font-size: 16px; }
 
 /* PRICING */
 .pricing-section { padding: 72px 0; background: var(--gray-50); }
@@ -812,7 +802,7 @@ footer .footer-links { display: flex; justify-content: center; gap: 24px; margin
 <!-- TRUSTED BY LOGOS -->
 <section class="logos-section">
   <div class="container">
-    <p class="section-label">Trusted by organizations that can't afford mistakes</p>
+    <p class="section-label">Proud Partners With</p>
     <div class="logos-grid">
       <div class="logo-item">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Seal_of_the_United_States_Department_of_Defense.svg/250px-Seal_of_the_United_States_Department_of_Defense.svg.png" alt="Department of Defense" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
@@ -902,20 +892,6 @@ footer .footer-links { display: flex; justify-content: center; gap: 24px; margin
   </div>
 </section>
 
-<!-- TESTING COMPLIANCE -->
-<section class="testing-section">
-  <div class="container">
-    <h2>Approved for Every Major Test</h2>
-    <p class="section-sub">Not sure which model your state requires? We'll verify before shipping.</p>
-    <div class="test-badges">
-      <div class="test-badge"><span class="check">&#10003;</span> SAT &amp; PSAT</div>
-      <div class="test-badge"><span class="check">&#10003;</span> ACT</div>
-      <div class="test-badge"><span class="check">&#10003;</span> AP Exams</div>
-      <div class="test-badge"><span class="check">&#10003;</span> IB Diploma</div>
-      <div class="test-badge"><span class="check">&#10003;</span> State Tests</div>
-    </div>
-  </div>
-</section>
 
 <!-- PRICING TIERS -->
 <section class="pricing-section">
