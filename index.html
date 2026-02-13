@@ -877,7 +877,7 @@ footer .footer-links { display: flex; justify-content: center; gap: 24px; margin
           <li>Latest packaging and firmware</li>
           <li>Best for new programs</li>
         </ul>
-        <button class="pricing-btn secondary" onclick="document.getElementById('quote-form').scrollIntoView({behavior:'smooth'})">Get Quote</button>
+        <button class="pricing-btn secondary" onclick="scrollToQuote()">Get Quote</button>
       </div>
       <div class="pricing-card featured">
         <div class="pricing-icon">&#127942;</div>
@@ -892,7 +892,7 @@ footer .footer-links { display: flex; justify-content: center; gap: 24px; margin
           <li>Identical to new condition</li>
           <li>Best for budget-conscious districts</li>
         </ul>
-        <button class="pricing-btn primary" onclick="document.getElementById('quote-form').scrollIntoView({behavior:'smooth'})">Get Quote &#8594;</button>
+        <button class="pricing-btn primary" onclick="scrollToQuote()">Get Quote &#8594;</button>
       </div>
       <div class="pricing-card">
         <div class="pricing-icon">&#128176;</div>
@@ -907,7 +907,7 @@ footer .footer-links { display: flex; justify-content: center; gap: 24px; margin
           <li>Tested and quality verified</li>
           <li>Best for maximum savings</li>
         </ul>
-        <button class="pricing-btn secondary" onclick="document.getElementById('quote-form').scrollIntoView({behavior:'smooth'})">Get Quote</button>
+        <button class="pricing-btn secondary" onclick="scrollToQuote()">Get Quote</button>
       </div>
     </div>
   </div>
@@ -947,7 +947,7 @@ footer .footer-links { display: flex; justify-content: center; gap: 24px; margin
   <div class="container">
     <h2>Ready to Save on Calculators?</h2>
     <p>Join 8,000+ schools who trust Math4Sale for their TI graphing calculators.</p>
-    <a href="#quote" class="final-cta-btn" onclick="document.getElementById('quote-form').scrollIntoView({behavior:'smooth'}); return false;">Get My Free Quote &#8594;</a>
+    <a href="#quote" class="final-cta-btn" onclick="scrollToQuote(); return false;">Get My Free Quote &#8594;</a>
     <div class="phone"><a href="tel:18006724410">&#9742; (800) 672-4410</a></div>
     <div class="phone-sub">Questions? Call us directly</div>
   </div>
@@ -966,10 +966,14 @@ footer .footer-links { display: flex; justify-content: center; gap: 24px; margin
 </footer>
 
 <script>
+function scrollToQuote() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(() => document.querySelector('#quote-form input[type="email"]').focus(), 600);
+}
 document.querySelectorAll('a[href="#quote"]').forEach(a => {
   a.addEventListener('click', e => {
     e.preventDefault();
-    document.getElementById('quote-form').scrollIntoView({ behavior: 'smooth' });
+    scrollToQuote();
   });
 });
 
